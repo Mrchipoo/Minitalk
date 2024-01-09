@@ -11,10 +11,10 @@ void handler(int pid, int harf)
     while(harf != 0)
     {
         if (harf % 2 == 1)
-            kill(pid,SIGUSR1);
-        else
             kill(pid,SIGUSR2);
-        harf /= 2;
+        else
+            kill(pid,SIGUSR1);
+        harf =  harf / 2;
     }
 }
 int main(int argc, char **argv)

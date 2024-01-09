@@ -18,22 +18,23 @@
 void handler(int signum)
 {
 	static int decimal;
-	int weight;
+	static int weight;
 	int bit;
 
 	bit = 7;
 	weight = 1;
 	decimal = 0;
-	while (bit >= 0)
+	while (bit > 0)
 	{
-		if(signum == SIGUSR1)
+		if(signum == SIGUSR2)
 		{
-			//decimal = decimal + weight;
-			//printf("decimal = %d\n",decimal);
+			decimal = decimal + weight;
+			printf("decimal = %d\n",decimal);
 		}
-		else if (signum == SIGUSR2)
+		else if (signum == SIGUSR1)
 			//printf("decimal2 = %d\n",decimal);
-		//weight = weight * 2;
+		weight = weight * 2;
+		printf("signum = %d\n",signum);
 		bit--;
 	}
 	printf("%c",decimal);

@@ -12,7 +12,7 @@
 
 Gflag = -Wall -Werror -Wextra
 CC = cc
-client_src =	.c
+client_src =client.c
 server_src = server.c
 Libft = ft_atoi.c
 SERVER = server
@@ -29,10 +29,9 @@ all:
 	rm -f libftprintf.a
 	@echo "Server And Client Are Ready!"
 clean:
-	@make clean -C $(PRINTF)
+	@make fclean -C $(PRINTF)
 fclean: clean
 	rm -f server client
-	@make fclean -C $(PRINTF)
 re: fclean all
 .PHONY: all clean fclean
 
