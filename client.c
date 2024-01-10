@@ -19,7 +19,7 @@ void	handler(int pid, char msg)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(500);
+		usleep(350);
 		bit++;
 	}
 }
