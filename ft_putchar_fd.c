@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 20:42:33 by echoubby          #+#    #+#             */
-/*   Updated: 2023/12/01 20:42:53 by echoubby         ###   ########.fr       */
+/*   Created: 2023/11/07 09:23:56 by echoubby          #+#    #+#             */
+/*   Updated: 2023/11/07 09:25:12 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-size_t	ft_strlen(const char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
 }

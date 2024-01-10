@@ -15,6 +15,7 @@ void handler(int pid, int harf)
         else
             kill(pid,SIGUSR1);
         harf =  harf / 2;
+        usleep(400);
     }
 }
 int main(int argc, char **argv)
@@ -32,7 +33,8 @@ int main(int argc, char **argv)
         {
             handler(pid, msg[i]);
             i++;
-        }    
+        }
+        // handler(pid,'\n');
     }
     else
         ft_printf("program need 2 arguments to work");

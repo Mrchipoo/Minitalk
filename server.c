@@ -15,29 +15,38 @@
 #include <signal.h>
 #include <sys/types.h>
 
+void	ft_putchar_fd(char c, int fd);
+
+int	square_dyali(int weight, int bit)
+{
+	while (bit > 0)
+	{
+		weight *= 2;
+		bit--;
+	}
+	return (weight);
+}
 void handler(int signum)
 {
 	static int decimal;
-	static int weight;
-	int bit;
+	int weight;
+	static int bit;
 
-	bit = 7;
 	weight = 1;
-	decimal = 0;
-	while (bit > 0)
+	weight = square_dyali(weight,bit);
+	if(signum == SIGUSR2)
 	{
-		if(signum == SIGUSR2)
-		{
-			decimal = decimal + weight;
-			printf("decimal = %d\n",decimal);
-		}
-		else if (signum == SIGUSR1)
-			//printf("decimal2 = %d\n",decimal);
-		weight = weight * 2;
-		printf("signum = %d\n",signum);
-		bit--;
+		decimal = decimal + (1 * weight);
+		//ft_printf("decimal = %d\n",decimal);
 	}
-	printf("%c",decimal);
+	bit++;
+	//ft_printf("bit = %d\n",bit);
+	if (bit == 7)
+	{
+		ft_putchar_fd(decimal, 1);
+		bit = 0;
+		decimal = 0;
+	}
 }
 int main(void)
 {
