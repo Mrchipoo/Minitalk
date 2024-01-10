@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 20:42:33 by echoubby          #+#    #+#             */
-/*   Updated: 2023/12/01 20:42:53 by echoubby         ###   ########.fr       */
+/*   Created: 2023/10/30 18:14:23 by echoubby          #+#    #+#             */
+/*   Updated: 2023/10/31 10:40:47 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-size_t	ft_strlen(const char *str)
+int	ft_isdigit(char *c)
 {
-	size_t	i;
+	int i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	while (c[i])
+	{
+		if (c[i] >= '0' && c[i] <= '9')
+			i++;
+		else
+			return (0);
+	}
+	return (1);
 }

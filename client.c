@@ -4,6 +4,8 @@
 #include <signal.h>
 #include <sys/types.h>
 
+int	ft_isdigit(char *c);
+
 int	ft_atoi(const char *nptr);
 
 void	handler(int pid, char msg)
@@ -21,6 +23,24 @@ void	handler(int pid, char msg)
 		bit++;
 	}
 }
+int sutpid_client(int argc, char *av)
+{
+    int num;
+
+    num = 0;
+    if (argc != 3)
+    {
+        ft_printf("program need 2 arguments to work");
+        return (num);
+    }
+    if (ft_isdigit(av) == 0)
+    {
+        ft_printf("server Pid should contain only numbers\n");
+        return (num);
+    }
+    num = 1;
+    return (num);
+}
 int main(int argc, char **argv)
 {
     int     pid;
@@ -28,7 +48,7 @@ int main(int argc, char **argv)
     int     i;
 
     i = 0;
-    if (argc == 3)
+    if (sutpid_client(argc, argv[1]) == 1)
     {
         pid = ft_atoi(argv[1]);
         msg = argv[2];
@@ -39,7 +59,5 @@ int main(int argc, char **argv)
         }
         handler(pid,'\n');
     }
-    else
-        ft_printf("program need 2 arguments to work");
     return (0);
 }
