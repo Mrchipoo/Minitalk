@@ -17,31 +17,15 @@
 
 void	ft_putchar_fd(char c, int fd);
 
-int	square_dyali(int weight, int bit)
+void	handler(int signum)
 {
-	while (bit > 0)
-	{
-		weight *= 2;
-		bit--;
-	}
-	return (weight);
-}
-void handler(int signum)
-{
-	static int decimal;
-	int weight;
-	static int bit;
+	static int	bit;
+	static int	decimal;
 
-	weight = 1;
-	weight = square_dyali(weight,bit);
-	if(signum == SIGUSR2)
-	{
-		decimal = decimal + (1 * weight);
-		//ft_printf("decimal = %d\n",decimal);
-	}
+	if (signum == SIGUSR1)
+		decimal |= (1 << bit);
 	bit++;
-	//ft_printf("bit = %d\n",bit);
-	if (bit == 7)
+	if (bit == 8)
 	{
 		ft_putchar_fd(decimal, 1);
 		bit = 0;
@@ -52,9 +36,11 @@ int main(void)
 {
 	ft_printf("Welcome To My Server!\n");
 	ft_printf("My Server PID is: %d\n", getpid());
-	signal(SIGUSR1, handler);
-	signal(SIGUSR2, handler);
 	while(1)
-		sleep(1);
+	{
+		signal(SIGUSR1, handler);
+		signal(SIGUSR2, handler);
+		pause();
+	}
 	return (0);
 }
