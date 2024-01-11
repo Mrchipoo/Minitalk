@@ -6,7 +6,7 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 10:10:04 by echoubby          #+#    #+#             */
-/*   Updated: 2024/01/08 11:58:09 by echoubby         ###   ########.fr       */
+/*   Updated: 2024/01/11 09:40:15 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../printf_git/ft_printf.h"
@@ -32,11 +32,12 @@ void	handler(int signum)
 		decimal = 0;
 	}
 }
-int main(void)
+
+int	main(void)
 {
 	ft_printf("Welcome To My Server!\n");
 	ft_printf("My Server PID is: %d\n", getpid());
-	while(1)
+	while (1)
 	{
 		signal(SIGUSR1, handler);
 		signal(SIGUSR2, handler);
