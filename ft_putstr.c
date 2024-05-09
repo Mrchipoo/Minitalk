@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 13:37:54 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/26 19:16:06 by echoubby         ###   ########.fr       */
+/*   Created: 2024/05/08 09:26:15 by echoubby          #+#    #+#             */
+/*   Updated: 2024/05/08 09:26:57 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+void	ft_putchar_fd(char c, int fd);
 
-int	ft_putnbr(unsigned long long n, char const *base)
+void	ft_putstr(char *s)
 {
-	int						i;
-	unsigned long long		base_len;
+	int	i;
 
-	base_len = ft_strlen(base);
 	i = 0;
-	if (n < base_len)
-		i = ft_putchar(base[n]);
-	else
+	while (s[i])
 	{
-		i += ft_putnbr((n / base_len), base);
-		i += ft_putnbr((n % base_len), base);
+		ft_putchar_fd(s[i], 1);
+		i++;
 	}
-	return (i);
 }

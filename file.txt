@@ -1,7 +1,0 @@
-msg & (1 << bit);
-
-awalan : (1 << bit ) kan 7arak l bit mn liman l lisar '<<' dyal 1 , 3lach 1 hit howa ra9m l wa7id li 3ndo bit wa7d = 1 fin l 8 bits kamlin , 3la dakchi khtarito bach , kola mara kanchifty dak lwa7ad 3la 7sab bit dyal dak 'msg' fin wsal . moraha katji & hadi kat9aran 'msg' bits m3a ra9m jdid li ay7rj mn operation li 9bl , ila kan nafs bit fl a3dad bjouj kaysawi 1 new bits aykon 1 ama ila kan gha wa7d 0 bit jdid ay kon 0,hadchi dayron f mital 0000100 = 8 & 01100001 = a or 97 result aykon 00000000 ya3ni if statment gha t skipa hit false , mital tani 01000000 = 64 & 01100001 = 97 result aykon 64 y3ni if statment atkon true wa hakada ta kansift l bits kamlin mn client l server.
-
-decimal |= (1 << bit) 
-
-decimal | value dyal (1 << bit ) = b7ala 3ndk 8 dyal moraba3at fo9ma waslk signal kadir vrai 3la 7sab bit fin wsal 7it decimal = 0000000 , za2is | b7ala & ghir howa ila kan gha wa7d mn dok jouj bits fihom 1 new bit kaykon fih 1 mn smiya byna 'or' ya2ima hada ola hadak .

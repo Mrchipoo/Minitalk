@@ -9,13 +9,17 @@
 /*   Updated: 2024/01/11 09:40:15 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../printf_git/ft_printf.h"
+
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
 #include <sys/types.h>
 
+void	ft_putnbr(unsigned long long n);
 void	ft_putchar_fd(char c, int fd);
+void	ft_putstr(char *s);
+
 
 void	handler(int signum)
 {
@@ -35,8 +39,13 @@ void	handler(int signum)
 
 int	main(void)
 {
-	ft_printf("Welcome To My Server!\n");
-	ft_printf("My Server PID is: %d\n", getpid());
+	int i;
+
+	i = getpid();
+	ft_putstr("Welcome To My Server!\n");
+	ft_putstr("My Server PID is:");
+	ft_putnbr(i);
+	ft_putstr("\n");
 	while (1)
 	{
 		signal(SIGUSR1, handler);

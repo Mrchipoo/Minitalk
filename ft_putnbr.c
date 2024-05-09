@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 17:40:38 by echoubby          #+#    #+#             */
-/*   Updated: 2023/11/26 16:27:26 by echoubby         ###   ########.fr       */
+/*   Created: 2024/05/09 09:04:15 by echoubby          #+#    #+#             */
+/*   Updated: 2024/05/09 09:04:18 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+void	ft_putchar_fd(char c, int fd);
 
-size_t	ft_strlen(const char *str)
+void	ft_putnbr(unsigned long long n)
 {
-	size_t	i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+    char *s;
+
+    s = "0123456789";
+	unsigned long long		base_len;
+
+	base_len = 10;
+	if (n < base_len)
+		ft_putchar_fd(s[n],1);
+	else
+	{
+		ft_putnbr((n / base_len));
+		ft_putnbr((n % base_len));
+	}
 }

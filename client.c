@@ -6,15 +6,16 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 09:34:13 by echoubby          #+#    #+#             */
-/*   Updated: 2024/01/11 09:44:28 by echoubby         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:19:58 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../printf_git/ft_printf.h"
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
 #include <sys/types.h>
+
+void	ft_putstr(char *s);
 
 int	ft_isdigit(char *c);
 
@@ -43,17 +44,17 @@ int	stupid_client(int argc, char **av)
 	num = 0;
 	if (argc != 3)
 	{
-		ft_printf("program need 2 arguments to work");
+		ft_putstr("program need 2 arguments to work");
 		return (num);
 	}
 	if (ft_isdigit(av[1]) == 0)
 	{
-		ft_printf("server Pid should contain only numbers\n");
+		ft_putstr("server Pid should contain only numbers\n");
 		return (num);
 	}
 	if (*av[2] == 0)
 	{
-		ft_printf("message can not be empty\n");
+		ft_putstr("message can not be empty\n");
 		return (num);
 	}
 	num = 1;
@@ -75,7 +76,7 @@ int	main(int argc, char **argv)
 		{
 			handler(pid, msg[i]);
 			i++;
-        	}
+		}
 		handler(pid, '\n');
 	}
 	return (0);
