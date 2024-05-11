@@ -6,7 +6,7 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 09:34:13 by echoubby          #+#    #+#             */
-/*   Updated: 2024/01/16 13:19:58 by echoubby         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:13:59 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -17,9 +17,9 @@
 
 void	ft_putstr(char *s);
 
-int	ft_isdigit(char *c);
+int		ft_isdigit(char *c);
 
-int	ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
 
 void	handler(int pid, char msg)
 {

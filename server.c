@@ -6,7 +6,7 @@
 /*   By: echoubby <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 10:10:04 by echoubby          #+#    #+#             */
-/*   Updated: 2024/01/11 09:40:15 by echoubby         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:13:42 by echoubby         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 void	ft_putnbr(unsigned long long n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr(char *s);
-
 
 void	handler(int signum)
 {
@@ -39,7 +38,7 @@ void	handler(int signum)
 
 int	main(void)
 {
-	int i;
+	int	i;
 
 	i = getpid();
 	ft_putstr("Welcome To My Server!\n");
